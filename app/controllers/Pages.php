@@ -1,10 +1,20 @@
 <?php
-class Pages{
+require_once ('../app/libraries/Controller.php');
+
+class Pages extends Controller{
     public function __construct(){
-        echo 'Controlador Pages cargado';
     }
 
-    public function index(){
+    public function index(...$params){
+        $data = ['saluda' => 'hola'];
+        $this->view('pages/index',$data);
+    }
 
+    public function about(){
+        $this->view('pages/about');
+    }
+
+    public function readOne($id){
+        echo 'Implementa el readOne';
     }
 }
