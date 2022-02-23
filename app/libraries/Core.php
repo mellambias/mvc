@@ -30,7 +30,7 @@ class Core{
         try{
             call_user_func_array(array($this->currentController,$this->currentMethod),$this->params);
         }catch(Error $e){
-            echo '<div style="color:red"><pre>';
+            echo '<div style="color:red"><h1>'.$e->getMessage().'</h1><pre>';
             print_r($e);
             echo '</pre></div><br>';
         }

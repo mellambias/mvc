@@ -6,33 +6,22 @@ class Controller{
 
     // devuelve un modelo
     public function model($model){
-        require_once ('../app/models/'.$model.'.php');
-        return new $model();
+        if(file_exists('../app/models/'.$model.'.php')){
+            require_once ('../app/models/'.$model.'.php');
+            return new $model();
+        }else{
+            throw new Error('El modelo no existe');
+        }
     }
 
     // imprime la vista
     public function view($view, $data=[]){
-        require_once('../app/views/'.$view.'.php');
+        if(file_exists('../app/views/'.$view.'.php')){
+            require_once('../app/views/'.$view.'.php');
+        }else{
+            throw new Error('la vista no existe');
+        }
     }
-
-    // CRUD 
-    public function create(...$params){
-        throw new Error('función create no implementada');
-    }
-    public function readOne($id){
-        throw new Error('función readOne no implementada');
-    }
-    public function readAll(){
-        throw new Error('función readAll no implementada');
-    }
-    public function update($id,...$params){
-        throw new Error('función update no implementada');
-    }
-    public function delete($id){
-        throw new Error('función delete no implementada');
-    }
-
-
 }
 
 

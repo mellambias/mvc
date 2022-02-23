@@ -24,18 +24,6 @@ class User{
 
     }
 
-    public function addUser($data){
-
-    }
-
-    public function updateUser($data){
-
-    }
-
-    public function getUserById($id){
-        
-    }
-
     public function emailExists($email){
         $this->db->query('SELECT * FROM users 
         WHERE email = :email');
@@ -51,10 +39,5 @@ class User{
         $user=$this->db->single();
         return password_verify(trim($data['password']), $user->password) ? $user : false;
     }
-
-    public function deleteUser($id){
-        
-    }
-
 }
 ?>

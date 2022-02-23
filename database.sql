@@ -9,7 +9,8 @@ USE mvc;
 CREATE TABLE IF NOT EXISTS posts(
     idpost INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     titulo VARCHAR(45),
-    contenido VARCHAR(45)
+    body VARCHAR(255),
+    iduser INT NOT NULL
 );
 
 
@@ -24,11 +25,6 @@ CREATE TABLE IF NOT EXISTS users(
 ALTER TABLE users
   ADD UNIQUE KEY email (email);
 
-# Siembra de datos
+ALTER TABLE posts
+ADD FOREIGN KEY (iduser) REFERENCES users(id);
 
-INSERT INTO posts (idpost,titulo,contenido)
-VALUES 
-(1,"post1","contenido"),
-(2,"post2","contenido"),
-(3,"post3","contenido"),
-(4,"post4","contenido");

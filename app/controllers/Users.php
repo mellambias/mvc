@@ -73,9 +73,9 @@ class Users extends Controller {
                     $this->view('users/register',$data);
                 }else{
                     if( $this->usersModel->register($_POST) ){
-                        redirect('/');
+                        redirect('');
                     }else{
-                        redirect('/');
+                        redirect('');
                     }
                 }
             }

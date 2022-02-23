@@ -2,7 +2,7 @@
 include_once(APPROOT.'/views/includes/header.php');
 ?>
 <div class="jumbotron jumbotron-fluid text-center">
-<h1>Página de inicio</h1>
+<h1><?php echo strtoupper(SITENAME); ?></h1>
 
 </div>
 <?php 

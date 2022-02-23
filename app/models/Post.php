@@ -12,6 +12,16 @@ class Post{
     }
     
     public function addPost($data){
+        $this->db->query('INSERT INTO posts (titulo,contenido)
+        VALUES (:titulo, :contenido )');
+        $this->db->bind(':titulo',$data['']);
+        $this->db->bind(':body',$data['']);
+
+        try{
+            $this->db->single();
+        }catch(Error $e){
+            echo $e->getMessage();
+        }
 
     }
 
