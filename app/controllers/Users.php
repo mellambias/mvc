@@ -8,6 +8,10 @@ class Users extends Controller {
         $this->usersModel = $this->model('User');
     }
 
+    public function index(){
+
+    }
+
     public function register(){
         // si llegamos por get -> mostramos vista
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -69,9 +73,9 @@ class Users extends Controller {
                     $this->view('users/register',$data);
                 }else{
                     if( $this->usersModel->register($_POST) ){
-                        $this->view('pages/');
+                        redirect('/');
                     }else{
-                        $this->view('pages/');
+                        redirect('/');
                     }
                 }
             }
@@ -84,5 +88,74 @@ class Users extends Controller {
         
     }
     
+    public function login(){
+        if($_SERVER['REQUEST_METHOD'] === 'GET'){
+            $this->view('users/login',[]);
+
+        }elseif($_SERVER['REQUEST_METHOD'] === 'POST'){
+
+            $args = array(
+                'email'    => FILTER_SANITIZE_EMAIL,
+                'password'     => FILTER_SANITIZE_ENCODED
+            );
+
+            $_POST = filter_input_array(INPUT_POST, $args);
+
+            $data = [
+                'email' => trim($_POST['email']),
+                'password' => trim($_POST['password']),
+                'email_err'=>'',
+                'password_err'=>''
+            ]; 
+
+            $error=false;
+            if(empty($data['email'])){
+                $data['email_err']= 'El correo no puede estar vacio';
+                $error = true;
+            }
+            if(empty($data['password'])){
+                $data['password_err']= 'El password no puede estar vacio';
+                $error = true;
+            }
+
+
+            if($error){
+                $this->view('users/login',$data);
+            }else{
+
+                if($this->usersModel->emailExists($data['email'])){
+                   $user = $this->usersModel->checkUser($_POST);
+                   if($user){
+                       $this->createUserSession($user);
+                        redirect('/');
+                   }else{
+                       $data['password_error']= 'Password incorrecto';
+                       $this->view('users/login',$data);
+                   }
+                    
+                }else{
+                     $data['email_err']= 'El usuario no existe';
+                     $this->view('users/login',$data);
+                }
+
+            }
+        }
+    }
+
+    public function createUserSession($user){
+        $_SESSION['user_id'] = $user->id;
+        $_SESSION['user_email'] = $user->email;
+        $_SESSION['user_name'] = $user->name;
+    }
+
+    public function logout(){
+        unset($_SESSION['user_id']);
+        unset($_SESSION['user_email']);
+        unset($_SESSION['user_name']);
+
+        session_destroy();
+
+        redirect('user/login');
+    }
 }
 ?>

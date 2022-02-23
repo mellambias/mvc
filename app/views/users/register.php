@@ -10,7 +10,7 @@
           <input
             type="text"
             name="name"
-            class="form-control form-control-lg"
+            class="form-control form-control-lg <?php if ($data['name_error']) echo 'is-invalid';?>"
             value="<?php echo isset($data['name'])? $data['name'] : ''?>"
           />
           <?php if($data['name_error']): ?>
