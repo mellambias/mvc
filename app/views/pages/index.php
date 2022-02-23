@@ -1,11 +1,10 @@
 <?php 
 include_once(APPROOT.'/views/includes/header.php');
 ?>
+<div class="jumbotron jumbotron-fluid text-center">
+<h1>Página de inicio</h1>
 
-<h1>Página index</h1>
-<?php 
-echo $data['saluda']; 
-?>
+</div>
 <?php 
 include_once(APPROOT.'/views/includes/footer.php');
 ?>

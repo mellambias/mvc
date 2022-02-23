@@ -13,6 +13,6 @@ define('APPROOT',dirname(dirname(__FILE__)));
 define('URLROOT','http://mvc.net');
 
 //Nombre sitio
-define('SITENAME','mini mvc');
+define('SITENAME','Mini MVC');
 
 ?>
