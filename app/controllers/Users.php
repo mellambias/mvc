@@ -5,6 +5,9 @@ class Users extends Controller {
     private $usersModel;
 
     public function __construct(){
+        if(!isLoggedIn()){
+            redirect('');
+        }
         $this->usersModel = $this->model('User');
     }
 

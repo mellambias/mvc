@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS posts(
     idpost INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     titulo VARCHAR(45),
     body VARCHAR(255),
+    postCreated datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
     iduser INT NOT NULL
 );
 

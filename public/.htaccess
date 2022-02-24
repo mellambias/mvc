@@ -1,3 +1,6 @@
+php_value display_errors Off
+php_value mbstring.http_input auto
+php_value date.timezone Europe/Madrid
 <IfModule mod_rewrite.c>
 # Necessary to prevent problems when using a controller named "index" and having a root index.php
 # more here: http://httpd.apache.org/docs/2.2/content-negotiation.html
