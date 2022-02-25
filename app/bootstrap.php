@@ -7,6 +7,7 @@ require_once "libraries/Database.php";
 require_once "helpers/url_helper.php";
 require_once "helpers/session_helper.php";
 require_once "helpers/req_helper.php";
+require_once "helpers/getPost.php";
 
 // autoload de librerias esta funcion registra una funcion
 
@@ -14,7 +15,9 @@ require_once "helpers/req_helper.php";
 https://www.php.net/manual/es/ref.spl.php
 */
 
-spl_autoload_register(function($className){
-    require_once ('libraries/'.$className.'.php');
-});
+// spl_autoload_register(function($className){
+//     require_once ('libraries/'.$className.'.php');
+// });
+
+require '../vendor/autoload.php';
 ?>

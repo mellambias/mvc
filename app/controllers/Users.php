@@ -1,13 +1,10 @@
 <?php
-require_once ('../app/libraries/Controller.php');
+require_once (APPROOT.'/libraries/Controller.php');
 
 class Users extends Controller {
     private $usersModel;
 
     public function __construct(){
-        if(!isLoggedIn()){
-            redirect('');
-        }
         $this->usersModel = $this->model('User');
     }
 

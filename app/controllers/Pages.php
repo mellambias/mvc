@@ -1,5 +1,6 @@
 <?php
 require_once ('../app/libraries/Controller.php');
+use PHPMailer\PHPMailer\PHPMailer;
 
 class Pages extends Controller{
     public function __construct(){

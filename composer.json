@@ -1,0 +1,17 @@
+{
+  "name": "daw/mvc",
+  "authors": [
+    {
+      "name": "mellambias",
+      "email": "mellambias@gmail.com"
+    }
+  ],
+  "require": {
+    "phpmailer/phpmailer": "^6.5"
+  },
+  "autoload": {
+    "classmap": [
+      "app/libraries"
+    ]
+  }
+}
