@@ -2,8 +2,8 @@
 // base de datos
 define('DB_HOSTS','localhost');
 define('DB_PORT','3306');
-define('DB_USER','root');
-define('DB_PASS','daw123');
+define('DB_USER','********');
+define('DB_PASS','********');
 define('DB_NAME','mvc');
 
 //App root
