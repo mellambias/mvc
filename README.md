@@ -14,6 +14,11 @@ The **Core** is a simple *router* `domain.com/router/method/params`
      the uri www.domain.com/pages/about    
      call pages->about() on the Class Pages.php in Controller folder
 
+***
+## Example
+[Web example working](http://mvc.freecluster.eu/)
+
+***
 
 Enjoy!!
 
